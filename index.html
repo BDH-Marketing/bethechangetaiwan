@@ -1,0 +1,651 @@
+<!DOCTYPE html><html lang="zh-Hant"><head>
+
+
+
+
+<meta charset="utf-8">
+<title>台灣改變由我協會 Be The Change Taiwan</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&amp;family=Noto+Serif+TC:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  /* ───────── Homepage-specific ───────── */
+  .hero {
+    position: relative;
+    min-height: min(92vh, 780px);
+    color: var(--white);
+    display: flex; align-items: center;
+    overflow: hidden;
+  }
+  .hero .bg {
+    position: absolute; inset: 0;
+    background: url("assets/hero-seedling.jpg") center/cover no-repeat;
+    transform: scale(1.03);
+  }
+  .hero .scrim {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(100deg, rgba(42,31,24,0.78) 0%, rgba(42,31,24,0.45) 45%, rgba(42,31,24,0.10) 80%);
+  }
+  .hero .scrim2 {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(124,63,30,0.05) 0%, rgba(42,31,24,0.45) 100%);
+  }
+  .hero .inner {
+    position: relative; z-index: 2;
+    max-width: var(--maxw); margin: 0 auto; padding: 100px var(--gut);
+    width: 100%;
+  }
+  .hero .est {
+    font-size: 12px; letter-spacing: 0.35em; text-transform: uppercase;
+    color: rgba(255,255,255,0.78); font-weight: 500;
+    margin-bottom: 24px;
+    display: inline-flex; align-items: center; gap: 14px;
+  }
+  .hero .est::before {
+    content: ""; display: inline-block; width: 28px; height: 1px; background: rgba(255,255,255,0.78);
+  }
+  .hero h1.title {
+    font-family: "Noto Serif TC", serif;
+    font-size: clamp(36px, 5vw, 68px); font-weight: 700;
+    letter-spacing: 0.05em;
+    margin: 0 0 28px;
+    line-height: 1.2;
+    max-width: 14ch;
+  }
+  .hero .quote {
+    max-width: 560px;
+    font-size: 17px; line-height: 1.95;
+    color: rgba(255,255,255,0.92);
+    border-left: 2px solid var(--brand-soft);
+    padding-left: 22px;
+    margin: 0 0 36px;
+  }
+  .hero .actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  /* About */
+  .about { padding: 110px 0 80px; }
+  .about .grid {
+    display: grid; grid-template-columns: 1fr 1.4fr;
+    gap: clamp(40px, 6vw, 90px);
+    align-items: flex-start;
+  }
+  @media (max-width: 880px) { .about .grid { grid-template-columns: 1fr; } }
+  .about .head h2.section-title-cn { margin-top: 14px; }
+  .about-cards {
+    display: grid; gap: 28px;
+  }
+  .about-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 28px 32px;
+    position: relative;
+  }
+  .about-card::before {
+    content: ""; position: absolute; left: 0; top: 24px; bottom: 24px; width: 3px;
+    background: var(--brand);
+  }
+  .about-card h3 {
+    margin: 0 0 8px; font-size: 18px; font-weight: 700; color: var(--brand-deep);
+    display: flex; align-items: baseline; gap: 12px;
+  }
+  .about-card h3 .en {
+    font-size: 11px; letter-spacing: 0.24em; color: var(--ink-mute); font-weight: 500;
+  }
+  .about-card p {
+    margin: 0; color: var(--ink-soft); font-size: 15px; line-height: 1.85;
+  }
+
+  /* Chairman message photo */
+  .chairman-photo {
+    width: 128px; height: 128px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 0 26px;
+    border: 4px solid var(--white);
+    outline: 1px solid var(--line);
+    box-shadow: 0 8px 24px rgba(124,63,30,0.16);
+  }
+  .chairman-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+
+  /* Manifesto */
+  .manifesto { padding: 90px 0 100px; background: var(--paper); }
+  .manifesto .head { text-align: center; max-width: 760px; margin: 0 auto 48px; }
+  .manifesto .head .eyebrow { justify-content: center; }
+  .manifesto .head .eyebrow::before { display: none; }
+  .manifesto .divider { margin: 18px auto 0; }
+  .manifesto-body {
+    max-width: 860px; margin: 0 auto;
+    position: relative;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 48px clamp(28px, 6vw, 64px);
+  }
+  .manifesto-body::before {
+    content: ""; position: absolute; left: 0; top: 24px; bottom: 24px; width: 3px;
+    background: var(--brand);
+  }
+  .manifesto-body p {
+    font-family: "Noto Serif TC", serif;
+    font-size: clamp(17px, 2vw, 20px);
+    line-height: 2;
+    color: var(--ink);
+    margin: 0 0 22px;
+  }
+  .manifesto-body p:last-child { margin-bottom: 0; }
+  .manifesto-body p.lead { font-weight: 700; color: var(--brand-deep); }
+
+  /* Stats strip */
+  .stats {
+    background: var(--paper-2);
+    padding: 56px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .stats .row {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    text-align: center; gap: 24px 64px;
+  }
+  .stats .stat { flex: 0 1 160px; }
+  .stat .n {
+    font-family: "Noto Serif TC", serif;
+    font-size: clamp(40px, 5vw, 60px);
+    color: var(--brand);
+    font-weight: 700;
+    line-height: 1;
+  }
+  .stat .l { font-size: 14px; color: var(--ink-soft); margin-top: 8px; letter-spacing: 0.1em; }
+
+  /* Concerns */
+  .concerns { padding: 110px 0 80px; }
+  .concerns .head { text-align: center; max-width: 760px; margin: 0 auto 56px; }
+  .concerns .head .eyebrow { justify-content: center; }
+  .concerns .head .eyebrow::before { display: none; }
+  .concerns .head .section-lead { margin-top: 18px; }
+  .concerns .grid3 {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 880px) { .concerns .grid3 { grid-template-columns: 1fr; } }
+  .concern {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    color: var(--white);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 32px;
+    transition: transform .35s ease;
+  }
+  .concern:hover { transform: translateY(-4px); }
+  .concern .bg {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    transition: transform .6s ease;
+  }
+  .concern:hover .bg { transform: scale(1.06); }
+  .concern .veil {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(42,31,24,0.05) 30%, rgba(42,31,24,0.85) 100%);
+  }
+  .concern .num {
+    position: absolute; top: 24px; left: 24px;
+    font-size: 14px; letter-spacing: 0.2em; color: rgba(255,255,255,0.85);
+  }
+  .concern .body { position: relative; z-index: 2; }
+  .concern h3 {
+    font-family: "Noto Serif TC", serif;
+    font-size: 26px; font-weight: 700; margin: 0 0 6px;
+    letter-spacing: 0.04em;
+  }
+  .concern .en { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.78; margin-bottom: 12px; }
+  .concern p { margin: 0; font-size: 14.5px; line-height: 1.75; color: rgba(255,255,255,0.9); }
+
+  /* Services */
+  .services { padding: 110px 0 80px; background: var(--paper-2); }
+  .services .head { text-align: center; max-width: 760px; margin: 0 auto 56px; }
+  .services .head .eyebrow { justify-content: center; }
+  .services .head .eyebrow::before { display: none; }
+  .svc-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  @media (max-width: 980px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) { .svc-grid { grid-template-columns: 1fr; } }
+  .svc {
+    background: var(--white);
+    padding: 36px 30px;
+    border: 1px solid var(--line);
+    transition: border-color .25s, transform .25s;
+  }
+  .svc:hover { border-color: var(--brand); transform: translateY(-3px); }
+  .svc .num {
+    font-family: "Noto Serif TC", serif;
+    font-size: 14px; color: var(--brand);
+    letter-spacing: 0.16em; font-weight: 600;
+  }
+  .svc .icon {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--brand-tint);
+    display: flex; align-items: center; justify-content: center;
+    margin: 14px 0 22px;
+    color: var(--brand-deep);
+  }
+  .svc h3 {
+    margin: 0; font-size: 19px; font-weight: 700; color: var(--ink);
+  }
+  .svc .en {
+    margin: 4px 0 14px; font-size: 11px;
+    letter-spacing: 0.22em; color: var(--ink-mute); text-transform: uppercase;
+  }
+  .svc p { margin: 0; color: var(--ink-soft); font-size: 14.5px; line-height: 1.8; }
+
+  /* Vision banner */
+  .vision {
+    position: relative; padding: 120px 0;
+    color: var(--white); overflow: hidden;
+  }
+  .vision .bg { position: absolute; inset: 0; background: url("assets/mountains.png") center/cover no-repeat; }
+  .vision .scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(42,31,24,0.55) 0%, rgba(124,63,30,0.72) 100%); }
+  .vision .inner { position: relative; z-index: 2; text-align: center; max-width: 880px; margin: 0 auto; padding: 0 var(--gut); }
+  .vision .quote-cn {
+    font-family: "Noto Serif TC", serif;
+    font-size: clamp(26px, 3.6vw, 44px);
+    font-weight: 700; letter-spacing: 0.06em;
+    line-height: 1.5;
+    margin: 0 0 30px;
+  }
+  .vision .quote-en {
+    font-size: 14px; line-height: 1.95;
+    color: rgba(255,255,255,0.86); letter-spacing: 0.02em;
+    max-width: 720px; margin: 0 auto;
+  }
+
+  /* Core Members – flex centering (works for any card count) */
+  .grid3-center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+  }
+  .grid3-center > * {
+    flex: 0 1 calc(33.333% - 16px);
+    min-width: 260px;
+  }
+  @media (max-width: 880px) {
+    .grid3-center > * { flex: 1 1 100%; }
+  }
+
+  /* Contact */
+  .contact { padding: 110px 0 80px; }
+  .contact .head { text-align: center; max-width: 720px; margin: 0 auto 56px; }
+  .contact .head .eyebrow { justify-content: center; }
+  .contact .head .eyebrow::before { display: none; }
+  .contact .grid {
+    display: grid; grid-template-columns: 1.4fr 1fr;
+    gap: 56px;
+    align-items: flex-start;
+  }
+  @media (max-width: 880px) { .contact .grid { grid-template-columns: 1fr; } }
+  .form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 560px) { .form .row { grid-template-columns: 1fr; } }
+  .form label {
+    display: block; font-size: 13px; font-weight: 600;
+    color: var(--ink-soft); margin-bottom: 8px; letter-spacing: 0.04em;
+  }
+  .form input, .form textarea {
+    width: 100%; padding: 14px 16px;
+    border: 1px solid var(--line);
+    background: var(--white);
+    border-radius: 4px;
+    font-family: inherit; font-size: 15px; color: var(--ink);
+    transition: border-color .2s;
+  }
+  .form input:focus, .form textarea:focus { outline: none; border-color: var(--brand); }
+  .form textarea { resize: vertical; min-height: 130px; }
+  .form .field { margin-bottom: 18px; }
+  .form button { margin-top: 8px; }
+
+  .contact-info { background: var(--paper-2); padding: 36px 32px; border-radius: 4px; border-top: 3px solid var(--brand); max-width: 520px; margin: 0 auto; }
+  .info-row { display: flex; gap: 14px; padding: 18px 0; border-bottom: 1px dashed var(--line); }
+  .info-row:last-child { border-bottom: none; }
+  .info-row .ico {
+    flex: none; width: 38px; height: 38px; border-radius: 50%;
+    background: var(--brand-tint); color: var(--brand-deep);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .info-row .k { font-size: 12px; letter-spacing: 0.18em; color: var(--ink-mute); text-transform: uppercase; }
+  .info-row .v { font-size: 15px; color: var(--ink); margin-top: 2px; }
+
+</style>
+</head>
+<body style="">
+
+<!-- ============================ TOP BAR ============================ -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="brand-mark" aria-label="台灣改變由我協會 Be The Change Taiwan"><img class="logo" src="assets/logo.png" alt="台灣改變由我協會 Be The Change Taiwan"></a>
+    <nav class="primary" id="primary-nav">
+      <a href="index.html" class="active">協會首頁</a>
+      <a href="services.html">關注議題</a>
+      <a href="#contact">聯絡我們</a>
+      <a href="https://forms.gle/eyVAUcjqpGPMVrp58" class="nav-cta">加入我們</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="選單" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero">
+  <div class="bg" aria-hidden="true"></div>
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="scrim2" aria-hidden="true"></div>
+  <div class="inner">
+    <div class="est" style="">Founded in 2016 · Taiwan</div>
+    <h1 class="title">台灣改變由我<br>協會</h1>
+    <p class="quote" style=""><div xmind-vk-rich-text-fragment-id="1780376674019-1492" style="font-size: 20px;"><b>從「我」開始，匯聚改變台灣的真實力量</b><br><div xmind-vk-rich-text-fragment-id="1780376700357-9192" style="font-size: 19px;">
+      「匯聚『我』的涓滴動能，打造強大的社會影響力轉化器；我們聚焦於：<br>青年天賦啟發、職業視野探索與數位素養倡議，將改變的願景化為真實落地的社會援助。」
+</div></div></p>
+    <div class="actions">
+      <a href="services.html" class="btn btn-primary">探索服務 →</a>
+      <a href="about.html" class="btn btn-ghost">認識我們</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ ABOUT ============================ -->
+ 
+<section class="about wrap" id="about">
+  <div class="grid">
+    <div class="head">
+      <span class="eyebrow">About Us</span>
+      <h2 class="section-title-cn">關於我們</h2>
+      <p class="section-title-en">Origin &amp; Core Values</p>
+      <div class="divider"></div>
+      <p style="color:var(--ink-soft); font-size:15px; line-height:1.9; max-width:32ch; margin-top:18px;">
+        品牌源起與核心價值 — 從一個人的覺察開始，把改變的力量帶進台灣每一個角落。
+      </p>
+    </div>
+    <div class="about-cards">
+      <div class="about-card">
+        <h3>協會源起 <span class="en">Origin</span></h3>
+        <p>「台灣改變由我協會」成立於 2016 年 4 月，為內政部核准設立的非營利組織。協會的誕生源自「統域領導力發展」長期深耕領導力訓練的社會反思，期望將個人的正面影響力化為實際的社會責任。</p>
+      </div>
+      <div class="about-card">
+        <h3>核心價值 <span class="en">Core Value</span></h3>
+        <p>協會將「自我實現」與「利他」緊密結合，鼓勵每個人將自身的成長與成就，轉化為回饋社會的實質貢獻。真正長遠的影響力，來自於大眾皆能秉持「改變由我」的精神。</p>
+      </div>
+      <div class="about-card">
+        <h3>使命與願景 <span class="en">Mission</span></h3>
+        <p>啟發青年天賦 (Empower)：延續「改變由我」的精神，陪伴青年探索自我優勢與天賦。幫助他們確立人生願景，成為推動社會共好的前進動能。</p>
+        <br>
+        <p>消弭機會落差 (Bridge)：出身與地理，絕不應是學習的屏障。職業視野的匱乏或數位能力的缺席，都是機會的不平等——我們致力消弭這道落差，讓每個孩子站上平等的起跑線。</p>
+        <br>
+        <p>驅動影響力轉化(Connect)：作為強大的「社會影響力轉化器」，匯聚各界行動者的專業與善意成為資源池；在理監事群的運籌帷幄下，將互助的理念轉化為實際落地的公益專案。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ MANIFESTO ============================ -->
+
+<section class="manifesto wrap" id="manifesto">
+  <div class="head">
+    <span class="eyebrow">Manifesto</span>
+    <h2 class="section-title-cn">宣言</h2>
+    <p class="section-title-en">Manifesto</p>
+    <div class="divider center"></div>
+  </div>
+  <div class="manifesto-body">
+    <p class="lead">我們相信，改變不是等待英雄，而是從每一個「我」開始。</p>
+    <p>台灣改變由我協會由一群熱愛這塊土地的跨界行動者組成，我們致力於成為一台強大的「社會影響力轉化器」。我們堅信「知識無邊界」，地理位置與出身，絕不應是學習與自我實現的屏障。</p>
+    <p>因此，我們匯聚每一個「我」的涓滴善意與資源。從啟發青年天賦，到主動消弭偏鄉的數位與教育落差，我們不只倡議，更捲起袖子實踐。在這裡，每一個跨出的一小步，都將轉化為打破城鄉藩籬、翻轉台灣社會的巨大動能。</p>
+  </div>
+</section>
+
+<!-- ============================ STATS ============================ -->
+ 
+<section class="stats">
+  <div class="wrap row">
+    <div class="stat"><div class="n">2016</div><div class="l">成立年份</div></div>
+    <!--<div class="stat"><div class="n">5+</div><div class="l">合作夥伴</div></div>-->
+    <div class="stat"><div class="n">80+</div><div class="l">公益服務</div></div>
+    <div class="stat"><div class="n">15</div><div class="l">公益工作坊</div></div>
+  </div>
+</section>
+
+<!-- ============================ Core Members ============================ 
+
+<section class="concerns wrap">
+  <div class="head">
+    <span class="eyebrow">Core Members</span>
+    <h2 class="section-title-cn">核心成員</h2>
+    <p class="section-title-en">Leadership Team</p>
+    <p class="section-lead">我們的核心成員由一群熱衷於社會變革的專業人士組成，致力於推動協會的使命與願景。</p>
+  </div>
+  <div class="grid3-center">
+    <a class="concern" href="services.html#youth">
+      <div class="bg" style="background-image:url('assets/calvin 1.png')"></div>
+      <div class="veil"></div>
+      <div class="num"></div>
+      <div class="body">
+        <h3>理事長</h3>
+        <div class="en">程家瑋 Calvin Cheng</div>
+ 
+      </div>
+    </a>
+    <a class="concern" href="services.html#rural">
+      <div class="bg" style="background-image:url('assets/racheal.png')"></div>
+      <div class="veil"></div>
+      <div class="num"></div>
+      <div class="body">
+        <h3>秘書長</h3>
+        <div class="en">胡逸榆 Racheal Hu </div>
+ 
+      </div>
+    </a>
+    
+  </div>
+</section>
+
+-->
+
+<!-- ============================ Message ============================ -->
+
+<section class="about wrap" id="about">
+  <div class="grid">
+    <div class="head">
+      <div class="chairman-photo">
+        <img src="assets/calvin 1.png" alt="理事長 程家瑋 Calvin Cheng">
+      </div>
+      <span class="eyebrow">About Us</span>
+      <h2 class="section-title-cn">理事長的話</h2>
+      <p class="section-title-en">Origin &amp; Core Values</p>
+      <div class="divider"></div>
+      <p style="color:var(--ink-soft); font-size:15px; line-height:1.9; max-width:32ch; margin-top:18px;">
+        改變台灣，從我開始 — 一個人的覺察，匯聚成改變的力量，帶進台灣每一個角落。
+      </p>
+    </div>
+    <div class="about-cards">
+      <div class="about-card">
+        <h3>我們始終相信，所有改變的源頭，都來自於「我」。 <span class="en"></span></h3>
+        <br>
+        <p>面對快速變動的社會與教育環境，許多人會問：「我一個人，能做些什麼？」台灣改變由我協會的答案很簡單：當每一個「我」願意跨出一步，匯聚起來，就是翻轉社會的巨大動能。
+過去幾年，透過「點燃天賦專案」我們陪伴了許多青年學子探索自我優勢、找到人生願景。2026 年，我們將帶著這份底蘊全面重啟，不僅延續「青年培力」的使命，更將目光投注於「偏鄉教育」的深耕與「科技平權」的推動。
+我們致力於成為一台強大的「社會影響力轉化器」。在這裡，您的每一份涓滴行動與善意，都將挹注成為龐大的資源池。我們不只有理論，更有實際落地的專案；透過主動發掘偏鄉的真實需求，我們將理念精準轉化為實質的科技與教育援助，讓改變的種子在各個角落生根。
+<br>
+<br>
+改變，不能只停留在想像。
+<br>
+<br>
+我們堅信「知識無邊界」，地理位置與出身絕不應成為學習與自我實現的屏障。如果您也認同「改變由我」的思維，如果您也渴望將自身的專業與熱情轉化為實質的社會貢獻，我們誠摯地邀請您加入我們。</p>
+      </div>
+     
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ============================ CONCERNS ============================ -->
+
+<section class="concerns wrap">
+  <div class="head">
+    <span class="eyebrow">Main Concerns</span>
+    <h2 class="section-title-cn">關注議題</h2>
+    <p class="section-title-en">深耕及投入關注領域</p>
+    <p class="section-lead">從教育培力到政策倡議，我們提供多元服務，陪伴每一個想要讓台灣更好的人。</p>
+  </div>
+  <div class="grid3">
+    <a class="concern" href="services.html#youth">
+      <div class="bg" style="background-image:url('assets/climb.jpg')"></div>
+      <div class="veil"></div>
+      <!-- <div class="num">01 / 03</div> -->
+      <div class="body">
+        <h3>青年培力</h3>
+        <div class="en">Youth Empowerment</div>
+        <p>陪伴青年探索自我天賦，從小目標累積自信，找到內在定位與人生方向。</p>
+      </div>
+    </a>
+    <a class="concern" href="services.html#rural">
+      <div class="bg" style="background-image:url('assets/child-sprout.png')"></div>
+      <div class="veil"></div>
+      <!-- <div class="num">02 / 03</div> -->
+      <div class="body">
+        <h3>偏鄉教育</h3>
+        <div class="en">Education in Remote Areas</div>
+        <p>深入偏鄉發掘真實需求，將理念轉化為實質教育援助，讓改變在每個角落生根。</p>
+      </div>
+    </a>
+    <a class="concern" href="services.html#digital">
+      <div class="bg" style="background-image:url('assets/tech.jpg')"></div>
+      <div class="veil"></div>
+      <!-- <div class="num">03 / 03</div> -->
+      <div class="body">
+        <h3>科技平權</h3>
+        <div class="en">Digital Equity</div>
+        <p>透過科技與數位資源的導入，讓地理位置與出身不再成為學習的屏障。</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============================ VISION BANNER ============================ -->
+<section class="vision">
+  <div class="bg" aria-hidden="true"></div>
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="quote-cn">為打造一個每個人都能發揮天賦、<br>彼此成就的共好台灣</p>
+    <p class="quote-en">Founded in 2016, Be The Change Taiwan is a non-profit organization dedicated to advancing education in Taiwan through talent development, teacher training, and empowering rural communities. Our vision is a thriving Taiwan where everyone can unleash their potential and succeed together.</p>
+  </div>
+</section>
+
+<!-- ============================ CONTACT ============================ 
+<section class="contact wrap" id="contact">
+  <div class="head">
+    <span class="eyebrow">Contact Us</span>
+    <h2 class="section-title-cn">聯絡我們</h2>
+    <p class="section-title-en">一起改變台灣</p>
+    <p class="section-lead">無論您是想加入我們、洽談合作，或只是想了解更多，我們都非常歡迎您與我們聯繫。</p>
+  </div>
+-->
+
+  <!--<div class="grid">
+    <form class="form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='已送出，謝謝您！';">
+      <div class="row">
+        <div class="field">
+          <label>姓名 Name</label>
+          <input type="text" placeholder="您的姓名" required="">
+        </div>
+        <div class="field">
+          <label>電子郵件 Email</label>
+          <input type="email" placeholder="your@email.com" required="">
+        </div>
+      </div>
+      <div class="field">
+        <label>主旨 Subject</label>
+        <input type="text" placeholder="訊息主旨">
+      </div>
+      <div class="field">
+        <label>訊息 Message</label>
+        <textarea placeholder="請輸入您的訊息..." required=""></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">送出訊息 Send Message</button>
+    </form>
+ -->
+
+ <!--information
+
+ <aside class="contact-info">
+      <div class="info-row">
+        <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></div>
+        <div>
+          <div class="k">地址 Address</div>
+          <div class="v">台灣 台北市內湖區成功路5段460號6樓</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 7 9-7"></path></svg></div>
+        <div>
+          <div class="k">電子信箱 Email</div>
+          <div class="v">bethechangetaiwan@gmail.com</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg></div>
+        <div>
+          <div class="k">電話 Phone</div>
+          <div class="v">+886 2657 5738</div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+-->
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="site-footer">
+  <div class="wrap grid">
+    <div class="footer-brand">
+      <img class="logo-footer" src="assets/logo.png" alt="改變由我 BE THE CHANGE TAIWAN">
+      <p>從「我」開始，匯聚改變台灣的真實力量。深耕教育、青年培力、普及數位素養。</p>
+    </div>
+    <div>
+      <h4>網站導覽</h4>
+      <a href="index.html">關於協會</a>
+      <a href="services.html">關注議題</a>
+      <a href="index.html#contact">聯絡我們</a>
+    </div>
+    <div>
+      <h4>關注議題</h4>
+      <a href="services.html#youth">青年培力</a>
+      <a href="services.html#rural">職業視野</a>
+      <a href="services.html#digital">數位素養</a>
+    </div>
+    <div>
+      <h4>聯絡資訊</h4>
+      <a>bethechangetaiwan@gmail.com</a>
+      <a>+886 226575738</a>
+      <a>台灣台北市內湖區成功路5段460號6樓</a>
+    </div>
+  </div>
+  <div class="wrap bar">
+    <span>法規責信：台內團字第 1060077490 號 ｜ 統一編號：72934661</span>
+    <span>© 2026 Be The Change Taiwan Association. All rights reserved.</span>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body></html>
